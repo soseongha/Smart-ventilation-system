@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL_CODE</resultMsg>
+  </header>
+  <body>
+    <items>
+      <item>
+        <so2Grade>1</so2Grade>
+        <coFlag/>
+        <khaiValue>65</khaiValue>
+        <so2Value>0.003</so2Value>
+        <coValue>0.7</coValue>
+        <pm25Flag/>
+        <pm10Flag/>
+        <pm10Value>31</pm10Value>
+        <o3Grade>1</o3Grade>
+        <khaiGrade>2</khaiGrade>
+        <pm25Value>18</pm25Value>
+        <no2Flag/>
+        <no2Grade>2</no2Grade>
+        <o3Flag/>
+        <pm25Grade>1</pm25Grade>
+        <so2Flag/>
+        <dataTime>2021-12-10 12:00</dataTime>
+        <coGrade>1</coGrade>
+        <no2Value>0.039</no2Value>
+        <pm10Grade>1</pm10Grade>
+        <o3Value>0.003</o3Value>
+      </item>
+    </items>
+    <numOfRows>100</numOfRows>
+    <pageNo>1</pageNo>
+    <totalCount>23</totalCount>
+  </body>
+</response>
