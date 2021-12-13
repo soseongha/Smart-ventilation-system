@@ -201,15 +201,15 @@ void* api_thd()
 		exit(2);
 
 	while (1) {
-		fp = fopen("input.txt", "r");      //Output.txt ÆÄÀÏÀ» ¿±´Ï´Ù.
+		fp = fopen("input.txt", "r");      //Output.txt íŒŒì¼ì„ ì—½ë‹ˆë‹¤.
 
-		if (fp == NULL)                     //¿¹¿ÜÃ³¸®
+		if (fp == NULL)                     //ì˜ˆì™¸ì²˜ë¦¬
 		{
 			printf("Read Error");
 			exit - 1;
 		}
 
-		while (!feof(fp))                   //txtÆÄÀÏ¿¡ pm10Value¸¦ Ã£¾Æ ±× ´Ü¾î°¡ Æ÷ÇÔµÈ ÁÙÀ» str¿¡ ÀúÀåÇÕ´Ï´Ù.
+		while (!feof(fp))                   //txtíŒŒì¼ì— pm10Valueë¥¼ ì°¾ì•„ ê·¸ ë‹¨ì–´ê°€ í¬í•¨ëœ ì¤„ì„ strì— ì €ì¥í•©ë‹ˆë‹¤.
 		{
 			num++;
 			fgets(str, 100, fp);
@@ -220,30 +220,30 @@ void* api_thd()
 			}
 		}
 
-		fclose(fp);                         //txtÆÄÀÏÀ» ´İ½À´Ï´Ù.
+		fclose(fp);                         //txtíŒŒì¼ì„ ë‹«ìŠµë‹ˆë‹¤.
 
-		char* tk1 = strtok(str, "<>");      // strtok¸¦ ÀÌ¿ëÇØ ÀúÈñ°¡ ¿øÇÏ´Â ¹Ì¼¼¸ÕÁö°ª¸¸ tk3¿¡ ÀúÀåÇÕ´Ï´Ù.
+		char* tk1 = strtok(str, "<>");      // strtokë¥¼ ì´ìš©í•´ ì €í¬ê°€ ì›í•˜ëŠ” ë¯¸ì„¸ë¨¼ì§€ê°’ë§Œ tk3ì— ì €ì¥í•©ë‹ˆë‹¤.
 		char* tk2 = strtok(NULL, "<>");
 		char* tk3 = strtok(NULL, "<>");
 
-		save = atoi(tk3);                   //¹®ÀÚÇüÀÎ tk3¸¦ Á¤¼öÇüÀ¸·Î º¯È¯ÇÕ´Ï´Ù.
+		save = atoi(tk3);                   //ë¬¸ìí˜•ì¸ tk3ë¥¼ ì •ìˆ˜í˜•ìœ¼ë¡œ ë³€í™˜í•©ë‹ˆë‹¤.
 
-		if (0 <= save && save < 80)         //¹Ì¼¼¸ÕÁö°ªÀÌ 0~80ÀÌ¸é value¿¡ 0À» ÀúÀåÇÏ°í GoodÀ» Ãâ·Â
+		if (0 <= save && save < 80)         //ë¯¸ì„¸ë¨¼ì§€ê°’ì´ 0~80ì´ë©´ valueì— 0ì„ ì €ì¥í•˜ê³  Goodì„ ì¶œë ¥
 		{
 			value[0] = '0';
 			value[1] = '\0';
 			printf("Dust is Good\n");
 		}
-		else if (save >= 80)                //¹Ì¼¼¸ÕÁö°ªÀÌ 80ÀÌ»óÀÌ¸é value¿¡ 1À» ÀúÀåÇÏ°í Bad¸¦ Ãâ·Â
+		else if (save >= 80)                //ë¯¸ì„¸ë¨¼ì§€ê°’ì´ 80ì´ìƒì´ë©´ valueì— 1ì„ ì €ì¥í•˜ê³  Badë¥¼ ì¶œë ¥
 		{
 			value[0] = '1';
 			value[1] = '\0';
 			printf("Dust is Bad\n");
 		}
 
-		if (value[0] == '1')                //value°ªÀÌ 1ÀÌ¸é ledºÒÀÌ ÄÑÁü
+		if (value[0] == '1')                //valueê°’ì´ 1ì´ë©´ ledë¶ˆì´ ì¼œì§
 			GPIOWrite(POUT, HIGH);
-		else if (value[0] == '0')           //value°ªÀÌ 0ÀÌ¸é ledºÒÀÌ ²¨Áü
+		else if (value[0] == '0')           //valueê°’ì´ 0ì´ë©´ ledë¶ˆì´ êº¼ì§
 			GPIOWrite(POUT, LOW);
 		usleep(1000000);
 	}
