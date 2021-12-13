@@ -8,11 +8,11 @@ Smart_ventilation_system with raspberrypi
 
 
 rbp1 -> last.c  
-rbp2 -> dust.c 
+rbp2 -> dust.c  
 rbp3 -> rbp3_fan.c 
 
 
-<project outline is like below> 
+project outline is like below
   
   
   
